@@ -18,7 +18,7 @@ gensim -- Topic Modelling in Python
 .. _Wheel: https://pypi.python.org/pypi/gensim
 
 Gensim is a Python library for *topic modelling*, *document indexing* and *similarity retrieval* with large corpora.
-Target audience is the *natural language processing* (NLP) and *information retrieval* (IR) community.
+Target audience is the *natural language processing* (NLP) and *information retrieval* (IR) community. This version of the API is a modification to original gensim API. The vocabulary can be updated with minor performance loss. 
 
 Features
 ---------
@@ -63,6 +63,18 @@ installation, optional install features), see the `documentation <http://radimre
 
 This version has been tested under Python 2.6, 2.7, 3.3, 3.4 and 3.5 (support for Python 2.5 was dropped in gensim 0.10.0; install gensim 0.9.1 if you *must* use Python 2.5). Gensim's github repo is hooked against `Travis CI for automated testing <https://travis-ci.org/piskvorky/gensim>`_ on every commit push and pull request.
 
+How to Update the Vocabulary of the model
+-----------------------------------------
+
+Load the already trained model::
+
+model=Word2Vec.load(W2V_WIKI_MODEL_FILE)
+
+Udate the vocabulary of loaded model by passing the argument **update** to build **build_vocab** as follows ::
+model.build_vocab(sentences,update=True)
+
+All the other function calls reamains similar to the original gensim API.
+
 How come gensim is so fast and memory efficient? Isn't it pure Python, and isn't Python slow and greedy?
 --------------------------------------------------------------------------------------------------------
 
@@ -77,32 +89,4 @@ Manual for the gensim package is available in `HTML <http://radimrehurek.com/gen
 contains a walk-through of all its features and a complete reference section.
 It is also included in the source distribution package.
 
-Citing gensim
--------------
 
-When `citing gensim in academic papers and theses <https://scholar.google.cz/citations?view_op=view_citation&hl=en&user=9vG_kV0AAAAJ&citation_for_view=9vG_kV0AAAAJ:u-x6o8ySG0sC>`_, please use this BibTeX entry::
-
-  @inproceedings{rehurek_lrec,
-        title = {{Software Framework for Topic Modelling with Large Corpora}},
-        author = {Radim {\v R}eh{\r u}{\v r}ek and Petr Sojka},
-        booktitle = {{Proceedings of the LREC 2010 Workshop on New
-             Challenges for NLP Frameworks}},
-        pages = {45--50},
-        year = 2010,
-        month = May,
-        day = 22,
-        publisher = {ELRA},
-        address = {Valletta, Malta},
-        note={\url{http://is.muni.cz/publication/884893/en}},
-        language={English}
-  }
-
-----------------
-
-Gensim is open source software released under the `GNU LGPL license <http://www.gnu.org/licenses/lgpl.html>`_.
-Copyright (c) 2009-now Radim Rehurek
-
-|Analytics|_
-
-.. |Analytics| image:: https://ga-beacon.appspot.com/UA-24066335-5/your-repo/page-name
-.. _Analytics: https://github.com/igrigorik/ga-beacon
