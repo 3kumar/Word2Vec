@@ -68,10 +68,11 @@ How to Update the Vocabulary of the model
 
 Load the already trained model::
 
-model=Word2Vec.load(W2V_WIKI_MODEL_FILE)
+   model=Word2Vec.load(W2V_WIKI_MODEL_FILE)
 
-Udate the vocabulary of loaded model by passing the argument **update** to build **build_vocab** as follows ::
-model.build_vocab(sentences,update=True)
+Udate the vocabulary of loaded model by passing the argument **update** to build **build_vocab** as follows::
+
+   model.build_vocab(sentences,update=True)
 
 All the other function calls reamains similar to the original gensim API.
 
